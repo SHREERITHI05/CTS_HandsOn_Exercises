@@ -1,0 +1,18 @@
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── setUp(): Test starting ──
+2026-06-23 09:53:10 [WARN ] [LoggingExampleTest] - WARN: User 'ShreeRithi' failed 3 times
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── tearDown(): Test complete ──
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── setUp(): Test starting ──
+2026-06-23 09:53:10 [DEBUG] [LoggingExampleTest] - DEBUG: Logger name verified — LoggingExample
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── tearDown(): Test complete ──
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── setUp(): Test starting ──
+2026-06-23 09:53:10 [WARN ] [LoggingExampleTest] - WARN: Warning level check passed
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── tearDown(): Test complete ──
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── setUp(): Test starting ──
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - INFO: Info level check passed
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── tearDown(): Test complete ──
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── setUp(): Test starting ──
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - INFO: Logger instance validated successfully
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── tearDown(): Test complete ──
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── setUp(): Test starting ──
+2026-06-23 09:53:10 [ERROR] [LoggingExampleTest] - ERROR: Error level check passed
+2026-06-23 09:53:10 [INFO ] [LoggingExampleTest] - ── tearDown(): Test complete ──
