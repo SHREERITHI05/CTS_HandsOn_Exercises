@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Exercise 7 — Constructor & Setter Injection
+        Two separate BookService beans to demonstrate both types.
+    -->
+
+    <!-- ── BookRepository Bean (shared by both services) ── -->
+    <bean id="bookRepository"
+          class="com.library.repository.BookRepository"/>
+
+    <!--
+        ── Bean 1: Constructor Injection ──
+        Spring injects BookRepository via constructor.
+        Uses <constructor-arg> tag.
+        Best for: MANDATORY dependencies —
+        object cannot function without this dependency.
+    -->
+    <bean id="bookServiceConstructor"
+          class="com.library.service.BookService">
+        <constructor-arg ref="bookRepository"/>
+        <constructor-arg value="Constructor Injection Mode"/>
+    </bean>
+
+    <!--
+        ── Bean 2: Setter Injection ──
+        Spring creates object first, then calls setter.
+        Uses <property> tag.
+        Best for: OPTIONAL dependencies —
+        object can exist without this dependency initially.
+    -->
+    <bean id="bookServiceSetter"
+          class="com.library.service.BookService">
+        <property name="bookRepository" ref="bookRepository"/>
+        <property name="serviceMode"    value="Setter Injection Mode"/>
+    </bean>
+
+</beans>

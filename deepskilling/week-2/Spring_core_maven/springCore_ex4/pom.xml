@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ── Project Identity ── -->
+    <groupId>com.library</groupId>
+    <artifactId>LibraryManagement</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>LibraryManagement</name>
+    <description>
+        Library Management System — Spring Core, AOP, WebMVC
+    </description>
+
+    <!-- ── Centralized Version Management ── -->
+    <!--
+        Defining versions as properties avoids hardcoding
+        the same version string in multiple places.
+        To upgrade Spring, change only this one line.
+    -->
+    <properties>
+        <java.version>1.8</java.version>
+        <spring.version>5.3.20</spring.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!--
+            ── 1. Spring Context ──
+            Core Spring dependency — provides:
+              • ApplicationContext (IoC Container)
+              • Bean lifecycle management
+              • Dependency Injection (DI)
+              • Event publishing
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--
+            ── 2. Spring AOP ──
+            Aspect-Oriented Programming — provides:
+              • Cross-cutting concerns (logging, security, transactions)
+              • @Aspect, @Before, @After, @Around annotations
+              • Proxy-based method interception
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--
+            ── 3. Spring WebMVC ──
+            Web layer — provides:
+              • DispatcherServlet (Front Controller)
+              • @Controller, @RequestMapping annotations
+              • REST API support (@RestController)
+              • View resolution (JSP, Thymeleaf)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--
+            ── 4. Spring Core ──
+            Foundation for all Spring modules — provides:
+              • Core utilities and abstractions
+              • Resource loading
+              • Type conversion
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--
+            ── 5. Spring Beans ──
+            Bean factory and XML configuration support — provides:
+              • BeanFactory
+              • XML bean definitions
+              • Setter and Constructor injection
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--
+            ── 6. Servlet API ──
+            Required by Spring WebMVC at compile time.
+            'provided' scope = available at compile time,
+            NOT bundled in final JAR (server provides it).
+        -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--
+            ── 7. JUnit 4 ──
+            Unit testing framework.
+            'test' scope = only available during testing,
+            NOT included in production build.
+        -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!--
+                ── Maven Compiler Plugin ──
+                Tells Maven which Java version to use
+                for compiling source and target bytecode.
+                Set to Java 1.8 as required by the exercise.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!--
+                ── Maven Surefire Plugin ──
+                Controls how JUnit tests are discovered and run.
+                Ensures all test classes are picked up during build.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

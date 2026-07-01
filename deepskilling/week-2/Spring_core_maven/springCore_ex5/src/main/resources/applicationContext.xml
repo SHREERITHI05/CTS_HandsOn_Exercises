@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Spring IoC Container Configuration
+        All beans defined here are managed by Spring.
+        Spring handles: creation, wiring, and lifecycle.
+    -->
+
+    <!-- ── BookRepository Bean ── -->
+    <!--
+        No dependencies — Spring creates this first.
+        Scope is singleton by default (one instance shared).
+    -->
+    <bean id="bookRepository"
+          class="com.library.repository.BookRepository"
+          scope="singleton">
+    </bean>
+
+    <!-- ── BookService Bean — Setter Injection ── -->
+    <!--
+        Spring creates BookService, then calls
+        setBookRepository() and injects bookRepository bean.
+        property name must match setter: setBookRepository()
+    -->
+    <bean id="bookService"
+          class="com.library.service.BookService"
+          scope="singleton">
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Spring Dependency Injection Configuration
+        Demonstrates TWO types of DI:
+          1. Setter Injection  → bookService bean (this exercise)
+          2. Constructor Injection → bookServiceConstructor bean (bonus)
+    -->
+
+    <!-- ── BookRepository Bean — no dependencies ── -->
+    <bean id="bookRepository"
+          class="com.library.repository.BookRepository"/>
+
+    <!--
+        ── BookService Bean — Setter Injection ──
+        Spring calls setBookRepository() automatically
+        after creating the BookService object.
+        property name="bookRepository" must match
+        the setter method: setBookRepository()
+    -->
+    <bean id="bookService"
+          class="com.library.service.BookService">
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
+
+    <!--
+        ── BookService Bean — Constructor Injection (Bonus) ──
+        Spring injects BookRepository via constructor.
+        Best practice for mandatory dependencies.
+    -->
+    <bean id="bookServiceConstructor"
+          class="com.library.service.BookService">
+        <constructor-arg ref="bookRepository"/>
+    </bean>
+
+</beans>
