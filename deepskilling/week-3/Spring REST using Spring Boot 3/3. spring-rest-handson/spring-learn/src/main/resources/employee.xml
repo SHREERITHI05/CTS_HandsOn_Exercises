@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- Departments -->
+    <bean id="dept1" class="com.cognizant.spring_learn.model.Department">
+        <constructor-arg value="1" />
+        <constructor-arg value="Engineering" />
+    </bean>
+
+    <bean id="dept2" class="com.cognizant.spring_learn.model.Department">
+        <constructor-arg value="2" />
+        <constructor-arg value="Human Resources" />
+    </bean>
+
+    <bean id="dept3" class="com.cognizant.spring_learn.model.Department">
+        <constructor-arg value="3" />
+        <constructor-arg value="Finance" />
+    </bean>
+
+    <bean id="dept4" class="com.cognizant.spring_learn.model.Department">
+        <constructor-arg value="4" />
+        <constructor-arg value="Marketing" />
+    </bean>
+
+    <util:list id="departmentList" value-type="com.cognizant.spring_learn.model.Department">
+        <ref bean="dept1" />
+        <ref bean="dept2" />
+        <ref bean="dept3" />
+        <ref bean="dept4" />
+    </util:list>
+
+    <!-- Reusable skill lists -->
+    <util:list id="devSkills" value-type="java.lang.String">
+        <value>Java</value>
+        <value>Spring Boot</value>
+        <value>Angular</value>
+    </util:list>
+
+    <util:list id="hrSkills" value-type="java.lang.String">
+        <value>Recruitment</value>
+        <value>Employee Relations</value>
+    </util:list>
+
+    <util:list id="financeSkills" value-type="java.lang.String">
+        <value>Accounting</value>
+        <value>Budgeting</value>
+    </util:list>
+
+    <util:list id="marketingSkills" value-type="java.lang.String">
+        <value>SEO</value>
+        <value>Content Strategy</value>
+    </util:list>
+
+    <!-- Employees -->
+    <bean id="emp1" class="com.cognizant.spring_learn.model.Employee">
+        <constructor-arg value="1" />
+        <constructor-arg value="Arun Kumar" />
+        <constructor-arg value="arun.kumar@cognizant.com" />
+        <constructor-arg value="Engineering" />
+        <constructor-arg ref="devSkills" />
+    </bean>
+
+    <bean id="emp2" class="com.cognizant.spring_learn.model.Employee">
+        <constructor-arg value="2" />
+        <constructor-arg value="Priya Sharma" />
+        <constructor-arg value="priya.sharma@cognizant.com" />
+        <constructor-arg value="Human Resources" />
+        <constructor-arg ref="hrSkills" />
+    </bean>
+
+    <bean id="emp3" class="com.cognizant.spring_learn.model.Employee">
+        <constructor-arg value="3" />
+        <constructor-arg value="Ravi Verma" />
+        <constructor-arg value="ravi.verma@cognizant.com" />
+        <constructor-arg value="Finance" />
+        <constructor-arg ref="financeSkills" />
+    </bean>
+
+    <bean id="emp4" class="com.cognizant.spring_learn.model.Employee">
+        <constructor-arg value="4" />
+        <constructor-arg value="Sneha Iyer" />
+        <constructor-arg value="sneha.iyer@cognizant.com" />
+        <constructor-arg value="Marketing" />
+        <constructor-arg ref="marketingSkills" />
+    </bean>
+
+    <bean id="emp5" class="com.cognizant.spring_learn.model.Employee">
+        <constructor-arg value="5" />
+        <constructor-arg value="Karthik Raja" />
+        <constructor-arg value="karthik.raja@cognizant.com" />
+        <constructor-arg value="Engineering" />
+        <constructor-arg ref="devSkills" />
+    </bean>
+
+    <util:list id="employeeList" value-type="com.cognizant.spring_learn.model.Employee">
+        <ref bean="emp1" />
+        <ref bean="emp2" />
+        <ref bean="emp3" />
+        <ref bean="emp4" />
+        <ref bean="emp5" />
+    </util:list>
+
+</beans>
